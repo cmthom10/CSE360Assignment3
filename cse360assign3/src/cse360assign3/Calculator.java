@@ -1,6 +1,6 @@
 /**
  * @author Cheri Thompson
- * @version 2/19/2016
+ * @version 2/21/2016
  */
 
 package cse360assign3;
@@ -8,9 +8,12 @@ package cse360assign3;
 public class Calculator {
 
 	private int total;
+	//used for keeping track of the history for the getHistory method
+	private String history;
 	
 	public Calculator () {
 		total = 0;  // not needed - included for clarity
+		history = "0 ";
 	}
 	
 	/** getTotal returns the total value.
@@ -18,6 +21,9 @@ public class Calculator {
 	 * @return total 	the integer total.
 	 */
 	public int getTotal () {
+		
+		history += "Total: " + total + " ";
+		
 		return total;
 	}
 	
@@ -27,6 +33,7 @@ public class Calculator {
 	 */
 	public void add (int value) {
 		total += value;
+		history += "+ " + value + " ";
 	}
 	
 	/** Subtract the parameter from the total variable.
@@ -35,6 +42,7 @@ public class Calculator {
 	 */
 	public void subtract (int value) {
 		total -= value;
+		history += "- " + value + " ";
 	}
 	
 	/** Multiply the parameter with itself and the parameter.
@@ -42,7 +50,8 @@ public class Calculator {
 	 *@param value an integer number.
 	 */
 	public void multiply (int value) {
-		total = total*total*value;
+		total = total*value;
+		history += "* " + value + " ";
 	}
 	
 	/** Divide the total by the parameter with integer division.
@@ -59,13 +68,15 @@ public class Calculator {
 		{
 			total = 0;
 		}
+		
+		history += "/ " + value + " ";
 	}
 	
-	/** getHistory returns an empty string.
+	/** getHistory returns the history of operations performed and values stored.
 	 * 
-	 *@return an empty string.
+	 *@return history	a string that contains all the functionality previously called by the user.
 	 */
 	public String getHistory () {
-		return "";
+		return history;
 	}
 }

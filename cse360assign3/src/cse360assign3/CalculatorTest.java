@@ -1,17 +1,14 @@
 /**
- * 
+ * @author Cheri Thompson
+ * @version 2/21/2016
  */
+
 package cse360assign3;
 
 import static org.junit.Assert.*;
 
 import org.junit.Test;
 
-/**
- * @author Cheri Thompson
- * @version February 19th, 2016
- *
- */
 public class CalculatorTest {
 
 	/**
@@ -64,7 +61,7 @@ public class CalculatorTest {
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#multiply(int)}.
-	 * Test whether the multiply method multiplies the total by the total by the value.
+	 * Test whether the multiply method multiplies the total by the value.
 	 */
 	@Test
 	public void testMultiply() {
@@ -73,7 +70,7 @@ public class CalculatorTest {
 		assertEquals(calc.getTotal(), 0);
 		calc.add(3);
 		calc.multiply(2);
-		assertEquals(calc.getTotal(), 3*3*2);
+		assertEquals(calc.getTotal(), 3*2);
 	}
 
 	/**
@@ -93,10 +90,22 @@ public class CalculatorTest {
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#getHistory()}.
+	 * Tests whether the history of each method is added to the string.
 	 */
 	@Test
 	public void testGetHistory() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		assertEquals(calc.getHistory(), "0 ");
+		calc.add(3);
+		assertEquals(calc.getHistory(), "0 + 3 ");
+		calc.subtract(2);
+		assertEquals(calc.getHistory(), "0 + 3 - 2 ");
+		calc.divide(3);
+		assertEquals(calc.getHistory(), "0 + 3 - 2 / 3 ");
+		calc.multiply(2);
+		assertEquals(calc.getHistory(), "0 + 3 - 2 / 3 * 2 ");
+		calc.getTotal();
+		assertEquals(calc.getHistory(), "0 + 3 - 2 / 3 * 2 Total: 0 ");
 	}
 
 }
