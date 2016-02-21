@@ -16,6 +16,7 @@ public class CalculatorTest {
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#Calculator()}.
+	 * Tests the constructor.
 	 */
 	@Test
 	public void testCalculator() {
@@ -25,42 +26,69 @@ public class CalculatorTest {
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#getTotal()}.
+	 * Tests whether the returned total is correct.
 	 */
 	@Test
 	public void testGetTotal() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		assertEquals(calc.getTotal(), 0);
+		calc.add(2);
+		assertEquals(calc.getTotal(), 2);
 	}
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#add(int)}.
+	 * Tests whether the add method adds.
 	 */
 	@Test
 	public void testAdd() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		calc.add(3);
+		assertEquals(calc.getTotal(), 3);
+		calc.add(5);
+		assertEquals(calc.getTotal(), 8);
 	}
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#subtract(int)}.
+	 * Tests whether the subtract method subtracts.
 	 */
 	@Test
 	public void testSubtract() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		calc.subtract(3);
+		assertEquals(calc.getTotal(), -3);
+		calc.subtract(1);
+		assertEquals(calc.getTotal(), -4);
 	}
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#multiply(int)}.
+	 * Test whether the multiply method multiplies the total by the total by the value.
 	 */
 	@Test
 	public void testMultiply() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		calc.multiply(3);
+		assertEquals(calc.getTotal(), 0);
+		calc.add(3);
+		calc.multiply(2);
+		assertEquals(calc.getTotal(), 3*3*2);
 	}
 
 	/**
 	 * Test method for {@link cse360assign3.Calculator#divide(int)}.
+	 * Test whether the divide method divides.
+	 * Also checks if it correctly handles a divide by 0. 
 	 */
 	@Test
 	public void testDivide() {
-		fail("Not yet implemented");
+		Calculator calc = new Calculator();
+		calc.divide(0);
+		assertEquals(calc.getTotal(), 0);
+		calc.add(4);
+		calc.divide(2);
+		assertEquals(calc.getTotal(), 2);
 	}
 
 	/**

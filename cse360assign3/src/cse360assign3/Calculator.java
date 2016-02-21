@@ -1,6 +1,6 @@
 /**
- * @author original author
- * @version original version 2016
+ * @author Cheri Thompson
+ * @version 2/19/2016
  */
 
 package cse360assign3;
@@ -18,42 +18,50 @@ public class Calculator {
 	 * @return total 	the integer total.
 	 */
 	public int getTotal () {
-		return 0;
+		return total;
 	}
 	
-	/** add currently does nothing.
+	/** Add the parameter to the total variable.
 	 * 
-	 *
+	 * @param value 	an integer number.
 	 */
 	public void add (int value) {
-		
+		total += value;
 	}
 	
-	/** subtract currently does nothing.
+	/** Subtract the parameter from the total variable.
 	 * 
-	 *
+	 *@param value 	an integer number.
 	 */
 	public void subtract (int value) {
-		
+		total -= value;
 	}
 	
-	/** multiply currently does nothing.
-	 * 
+	/** Multiply the parameter with itself and the parameter.
 	 *
+	 *@param value an integer number.
 	 */
 	public void multiply (int value) {
-		
+		total = total*total*value;
 	}
 	
-	/** divide currently does nothing.
+	/** Divide the total by the parameter with integer division.
+	 * If the parameter is zero, the total is set to zero.
 	 * 
 	 *@param value	an integer number.
 	 */
 	public void divide (int value) {
-		
+		if (value != 0)
+		{
+			total /= value;
+		}
+		else
+		{
+			total = 0;
+		}
 	}
 	
-	/** getHistory currently does nothing.
+	/** getHistory returns an empty string.
 	 * 
 	 *@return an empty string.
 	 */
